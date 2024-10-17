@@ -3,25 +3,27 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static tests.TestData.*;
+
 public class UserRegistrationWithFakeDataTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    String firstName = "Bony";
-    String lastName = "Skye";
-    String email = "Bony@test.com";
-    String gender = "Male";
-    String number = "9659112131";
-    String badNumber = "j";
-    String dayOfBirth = "07";
-    String monthOfBirth = "October";
-    String yearOfBirth = "1991";
-    String subject = "Maths";
-    String hobby = "Reading";
-    String picture = "One-Punch Man.jpg";
-    String address = "Street 1";
-    String state = "NCR";
-    String city = "Delhi";
+//    String firstName = "Bony",
+//            lastName = "Skye",
+//            email = "Bony@test.com",
+//            gender = "Male",
+//            number = "9659112131",
+//            badNumber = "j",
+//            dayOfBirth = "07",
+//            monthOfBirth = "October",
+//            yearOfBirth = "1991",
+//            subject = "Maths",
+//            hobby = "Reading",
+//            picture = "One-Punch Man.jpg",
+//            address = "Street 1",
+//            state = "NCR",
+//            city = "Delhi";
 
     @Test
     void userRegistrationWithFakeDataTest() {
