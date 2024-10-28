@@ -10,21 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
-    public RegistrationPage openPage() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-
-        return this;
-    }
-
-    public RegistrationPage removeBanners() {
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
-        return this;
-    }
-
-
     private final SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
@@ -38,10 +23,21 @@ public class RegistrationPage {
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
             submitButton = $("#submit");
-
-
     CalendarComponent calendarComponent = new CalendarComponent();
 
+    public RegistrationPage openPage() {
+        open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+
+        return this;
+    }
+
+    public RegistrationPage removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
+        return this;
+    }
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
