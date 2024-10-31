@@ -1,6 +1,6 @@
 package tests;
 
-public class TestData {
+public class TestDataWithoutFaker {
 
     public static String firstName = "Bony",
             lastName = "Skye",
