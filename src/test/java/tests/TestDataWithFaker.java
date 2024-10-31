@@ -33,7 +33,7 @@ public class TestDataWithFaker {
             badNumber = faker.regexify("[A-Za-z]{3}"),
             subject = faker.options().option(subjects),
             hobby = faker.options().option(hobbies),
-            picture = faker.options().option("One-Punch Man.jpg","Oogway.jpg","Totoro.jpg"),
+            picture = faker.options().option("One-Punch Man.jpg", "Oogway.jpg", "Totoro.jpg"),
             address = faker.address().streetAddress(),
             state = faker.options().option(statesWithCities.keySet().toArray(new String[0])),
             city = faker.options().option(statesWithCities.get(state));
