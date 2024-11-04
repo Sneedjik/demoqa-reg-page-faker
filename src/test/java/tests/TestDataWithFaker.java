@@ -9,9 +9,9 @@ public class TestDataWithFaker {
 
     private final Faker faker = new Faker();
 
-    static String[] genders = {"Male", "Female", "Other"};
-    static String[] subjects = {"Maths", "Computer Science", "Chemistry", "Biology", "History", "English"};
-    static String[] hobbies = {"Reading", "Sports", "Music"};
+    static final String[] genders = {"Male", "Female", "Other"};
+    static final String[] subjects = {"Maths", "Computer Science", "Chemistry", "Biology", "History", "English"};
+    static final String[] hobbies = {"Reading", "Sports", "Music"};
 
     public String getFirstName() {
         return faker.name().firstName();

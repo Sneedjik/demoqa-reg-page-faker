@@ -8,21 +8,21 @@ public class UserRegistrationWithFakeDataTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     TestDataWithFaker testData = new TestDataWithFaker();
 
-    String firstName = testData.getFirstName();
-    String lastName = testData.getLastName();
-    String email = testData.getEmail();
-    String gender = testData.getGender();
-    String phoneNumber = testData.getNumber();
-    String badNumber = testData.getBadNumber();
-    String dayOfBirth = testData.getDayOfBirthDate();
-    String monthOfBirth = testData.getMonthOfBirth();
-    String yearOfBirth = testData.getYearOfBirth();
-    String subject = testData.getSubject();
-    String hobby = testData.getHobby();
-    String picture = testData.getPicture();
-    String address = testData.getAddress();
-    String state = testData.getState();
-    String city = testData.getCity(state);
+    final String firstName = testData.getFirstName();
+    final String lastName = testData.getLastName();
+    final String email = testData.getEmail();
+    final String gender = testData.getGender();
+    final String phoneNumber = testData.getNumber();
+    final String badNumber = testData.getBadNumber();
+    final String dayOfBirth = testData.getDayOfBirthDate();
+    final String monthOfBirth = testData.getMonthOfBirth();
+    final String yearOfBirth = testData.getYearOfBirth();
+    final String subject = testData.getSubject();
+    final String hobby = testData.getHobby();
+    final String picture = testData.getPicture();
+    final String address = testData.getAddress();
+    final String state = testData.getState();
+    final String city = testData.getCity(state);
 
     @Test
     void userRegistrationWithFakeDataTest() {
