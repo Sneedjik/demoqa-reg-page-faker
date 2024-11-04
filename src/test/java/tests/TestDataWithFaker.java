@@ -4,38 +4,90 @@ import net.datafaker.Faker;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TestDataWithFaker {
 
-    public static Map<String, String[]> statesWithCities = new HashMap<>() {{
-        put("NCR", new String[]{"Delhi", "Gurgaon", "Noida"});
-        put("Uttar Pradesh", new String[]{"Agra", "Lucknow", "Merrut"});
-        put("Haryana", new String[]{"Karnal", "Panipat"});
-        put("Rajasthan", new String[]{"Jaipur", "Jaiselmer"});
-    }};
-    static Faker faker = new Faker();
-    public static int age = faker.number().numberBetween(0, 124);
-    public static LocalDate birthDate = LocalDate.now()
-            .minus(Period.ofYears(age));
+    private final Faker faker = new Faker();
+
     static String[] genders = {"Male", "Female", "Other"};
     static String[] subjects = {"Maths", "Computer Science", "Chemistry", "Biology", "History", "English"};
     static String[] hobbies = {"Reading", "Sports", "Music"};
-    public static String dayOfBirth = String.format("%02d", birthDate.getDayOfMonth()),
-            monthOfBirth = birthDate.getMonth().name().substring(0, 1).toUpperCase() + birthDate.getMonth().name().substring(1).toLowerCase(),
-            yearOfBirth = String.valueOf(birthDate.getYear()),
-            firstName = faker.name().firstName(),
-            lastName = faker.name().lastName(),
-            email = faker.internet().emailAddress(),
-            gender = faker.options().option(genders),
-            number = faker.number().digits(10),
-            badNumber = faker.regexify("[A-Za-z]{3}"),
-            subject = faker.options().option(subjects),
-            hobby = faker.options().option(hobbies),
-            picture = faker.options().option("One-Punch Man.jpg", "Oogway.jpg", "Totoro.jpg"),
-            address = faker.address().streetAddress(),
-            state = faker.options().option(statesWithCities.keySet().toArray(new String[0])),
-            city = faker.options().option(statesWithCities.get(state));
+
+    public String getFirstName() {
+        return faker.name().firstName();
+    }
+
+    public String getLastName() {
+        return faker.name().lastName();
+    }
+
+    public String getEmail() {
+        return faker.internet().emailAddress();
+    }
+
+    public String getGender() {
+        return faker.options().option(genders);
+    }
+
+    public String getNumber() {
+        return faker.number().digits(10);
+    }
+
+    public String getDayOfBirthDate() {
+        return String.format("%02d", getBirthDate().getDayOfMonth());
+    }
+
+    public String getMonthOfBirth() {
+        return getBirthDate().getMonth().name().substring(0, 1).toUpperCase() + getBirthDate().getMonth().name().substring(1).toLowerCase();
+    }
+
+    public String getYearOfBirth() {
+        return String.valueOf(getBirthDate().getYear());
+    }
+
+    public String getBadNumber() {
+        return faker.regexify("[A-Za-z]{3}");
+    }
+
+    public String getSubject() {
+        return faker.options().option(subjects);
+    }
+
+    public String getHobby() {
+        return faker.options().option(hobbies);
+    }
+
+    public String getPicture() {
+        return faker.options().option("One-Punch Man.jpg", "Oogway.jpg", "Totoro.jpg");
+    }
+
+    public String getAddress() {
+        return faker.address().streetAddress();
+    }
+
+    public int getAge() {
+        return faker.number().numberBetween(0, 124);
+    }
+
+    public LocalDate getBirthDate() {
+        return LocalDate.now()
+                .minus(Period.ofYears(getAge()));
+    }
+
+    public String getState() {
+        String[] states = {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+
+        return faker.options().option(states);
+    }
+
+    public String getCity(String state) {
+        return switch (state) {
+            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh" -> faker.options().option("Lucknow", "Agra", "Merrut");
+            case "Haryana" -> faker.options().option("Panipat", "Karnal");
+            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+            default -> throw new IllegalArgumentException("Invalid state");
+        };
+    }
 
 }

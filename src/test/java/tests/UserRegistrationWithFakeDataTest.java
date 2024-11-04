@@ -3,11 +3,26 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static tests.TestDataWithFaker.*;
-
 public class UserRegistrationWithFakeDataTest extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    TestDataWithFaker testData = new TestDataWithFaker();
+
+    String firstName = testData.getFirstName();
+    String lastName = testData.getLastName();
+    String email = testData.getEmail();
+    String gender = testData.getGender();
+    String phoneNumber = testData.getNumber();
+    String badNumber = testData.getBadNumber();
+    String dayOfBirth = testData.getDayOfBirthDate();
+    String monthOfBirth = testData.getMonthOfBirth();
+    String yearOfBirth = testData.getYearOfBirth();
+    String subject = testData.getSubject();
+    String hobby = testData.getHobby();
+    String picture = testData.getPicture();
+    String address = testData.getAddress();
+    String state = testData.getState();
+    String city = testData.getCity(state);
 
     @Test
     void userRegistrationWithFakeDataTest() {
@@ -20,7 +35,7 @@ public class UserRegistrationWithFakeDataTest extends TestBase {
                 .setLastName(lastName)
                 .setEmail(email)
                 .setGender(gender)
-                .setUserNumber(number)
+                .setUserNumber(phoneNumber)
                 .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
                 .setSubject(subject)
                 .setHobby(hobby)
@@ -33,7 +48,7 @@ public class UserRegistrationWithFakeDataTest extends TestBase {
                 .checkResult("Student Name", firstName + " " + lastName)
                 .checkResult("Student Email", email)
                 .checkResult("Gender", gender)
-                .checkResult("Mobile", number)
+                .checkResult("Mobile", phoneNumber)
                 .checkResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .checkResult("Subjects", subject)
                 .checkResult("Hobbies", hobby)
@@ -51,12 +66,12 @@ public class UserRegistrationWithFakeDataTest extends TestBase {
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setGender(gender)
-                .setUserNumber(number)
+                .setUserNumber(phoneNumber)
                 .submit()
 
                 .checkResult("Student Name", firstName + " " + lastName)
                 .checkResult("Gender", gender)
-                .checkResult("Mobile", number);
+                .checkResult("Mobile", phoneNumber);
     }
 
     @Test
